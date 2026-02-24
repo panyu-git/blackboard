@@ -1,0 +1,3 @@
+/home/panloyz/tools/mybbd/__build/CMakeFiles/bbd_demo.dir
+/home/panloyz/tools/mybbd/__build/CMakeFiles/edit_cache.dir
+/home/panloyz/tools/mybbd/__build/CMakeFiles/rebuild_cache.dir

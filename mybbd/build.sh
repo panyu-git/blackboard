@@ -31,8 +31,13 @@ if [ "$1" = "test" ]; then
             g++ -std=c++17 -I. examples/t05_variadic_template.cc -o examples/t05_variadic_template
             echo "Built: examples/t05_variadic_template";
             ;;
+		07)
+			echo "Building example t07_tuple_get_impl..."
+			g++ -std=c++17 -I. examples/t07_tuple_get_impl.cc -o examples/t07_tuple_get_impl
+			echo "Built: examples/t07_tuple_get_impl";
+			;;
 		*)
-			echo "Usage: $0 test <01|02|03|04>";
+			echo "Usage: $0 test <01|02|03|04|05|07>";
 			exit 1;
 			;;
 	esac

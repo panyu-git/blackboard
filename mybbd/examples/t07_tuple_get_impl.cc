@@ -16,23 +16,23 @@ struct MyTuple<Head, Tail...> : MyTuple<Tail...> {
 };
 
 template <std::size_t I, typename T>
-struct MyTupleElement;
+struct TupleElement;
 
 template <typename Head, typename... Tail>
-struct MyTupleElement<0, MyTuple<Head, Tail...>> {
+struct TupleElement<0, MyTuple<Head, Tail...>> {
   using type = Head;
   using base_tuple_type = MyTuple<Head, Tail...>;
 };
 
 template <std::size_t I, typename Head, typename... Tail>
-struct MyTupleElement<I, MyTuple<Head, Tail...>> 
-    : MyTupleElement<I - 1, MyTuple<Tail...>> {};
+struct TupleElement<I, MyTuple<Head, Tail...>> 
+    : TupleElement<I - 1, MyTuple<Tail...>> {};
 
 // get
 template <std::size_t I, typename... T>
 auto& GetTp(MyTuple<T...>& t) {
   // 拿到对应的基类类型
-  using Type = typename MyTupleElement<I, MyTuple<T...>>::base_tuple_type;
+  using Type = typename TupleElement<I, MyTuple<T...>>::base_tuple_type;
   std::cout << "===========" << std::endl;
   std::cout << boost::typeindex::type_id_with_cvr<Type>().pretty_name() << std::endl;
   std::cout << boost::typeindex::type_id_with_cvr<Type>().pretty_name() << std::endl;
